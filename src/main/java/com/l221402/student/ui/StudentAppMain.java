@@ -67,7 +67,7 @@ public class StudentAppMain {
         Date date4 = calendar4.getTime();
 
         
-        list.add(new PhanMemStudent("Nguyen Van A", date1, "HCM", 5, 5, 5));
+        list.add(new PhanMemStudent("Nguyen Van A", date1, "HCM", 3, 3, 3));
         list.add(new KinhTeStudent("Nguyen Van B", date2, "HN", 6, 6));
         list.add(new PhanMemStudent("Nguyen Thi C", date3, "DN", 8, 8, 8));
         list.add(new KinhTeStudent("Tran Van Mít", date4, "YB", 9, 9));
