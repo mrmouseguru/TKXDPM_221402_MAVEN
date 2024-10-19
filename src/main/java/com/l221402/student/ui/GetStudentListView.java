@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import com.l221402.student.usecase.GetStudentListOutputDTO;
 
-public class GetStudentListForm {
+public class GetStudentListView {
 
     public  void createAndShowGUI(List<GetStudentListOutputDTO> students) {
         JFrame frame = new JFrame("Student Management");
@@ -122,7 +122,7 @@ public class GetStudentListForm {
 
     public static void main(String[] args) {
 
-        GetStudentListForm getStudentListForm = new GetStudentListForm();
+        GetStudentListView getStudentListForm = new GetStudentListView();
         getStudentListForm.createAndShowGUI2();
         
     }

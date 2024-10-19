@@ -23,6 +23,8 @@ public class GetStudentListPresenter implements GetStudentListOutputBoundary{
     @Override
     public void present(List<GetStudentListOutputDTO> listOutDTO) {
         this.listOutputDTO = listOutDTO;
+        GetStudentListView form = new GetStudentListView();
+        form.createAndShowGUI(listOutDTO);
     }
 
     public List<GetStudentListOutputDTO> getListOutputDTO() {

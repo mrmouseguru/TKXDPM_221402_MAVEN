@@ -1,43 +1,30 @@
-package com.l221402.student;
-
-import static org.junit.Assert.assertEquals;
+package com.l221402.student.ui;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Test;
-
 import com.l221402.student.database.GetStudentListDAOMemory;
 import com.l221402.student.entity.KinhTeStudent;
 import com.l221402.student.entity.PhanMemStudent;
 import com.l221402.student.entity.Student;
-import com.l221402.student.ui.GetStudentListPresenter;
-import com.l221402.student.usecase.GetStudentListInputBoundary;
 import com.l221402.student.usecase.GetStudentListUseCase;
 
-public class TestGetStudentList {
+public class StudentAppMain {
 
-
-    @Test
-    public void getStudentListOK() {
-
-        GetStudentListDAOMemory dao = new GetStudentListDAOMemory(getData());
+    public static void main(String[] args) {
         GetStudentListPresenter presenter = new GetStudentListPresenter();
-        GetStudentListInputBoundary input = new GetStudentListUseCase(presenter, dao);
-        input.execute();
-
-        assertEquals(4, presenter.getDataExport().getList().size());
-
-        assertEquals(4, presenter.getListOutputDTO().size());
-        
-
-
-        
+        GetStudentListDAOMemory  database = new GetStudentListDAOMemory(getData());
+        GetStudentListUseCase useCase = new 
+        GetStudentListUseCase(presenter, database);
+        GetStudentListController controller = new 
+        GetStudentListController(useCase);
+        controller.execute();
     }
 
-    private List<Student> getData(){
+
+    private static List<Student> getData(){
         List<Student> list = new ArrayList<>();
         Calendar calendar1 = Calendar.getInstance();
         
