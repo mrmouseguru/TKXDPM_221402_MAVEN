@@ -1,5 +1,6 @@
 package com.l221402.student.usecase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.l221402.student.entity.Student;
@@ -23,8 +24,25 @@ public class GetStudentListUseCase implements GetStudentListInputBoundary{
 
         //lay danh sach sin hvien
         List<Student> listStudent = getSLDBBoundary.getAllStudentList();
+        List<GetStudentListOutputDTO> listOutDTO = new ArrayList<>();
+
         DataExport dataExport = new DataExport(listStudent);
         getSLOutputBoundary.exportResult(dataExport);
+
+        for (Student student : listStudent) {
+
+            GetStudentListOutputDTO studentDTO = new GetStudentListOutputDTO
+            (student.getHoTen(), student.getNgaySinh(), student.getDiaChi(),
+            student.getNganh(), student.tinhDiemTB(), student.getHocLuc()
+            );
+
+            listOutDTO.add(studentDTO);
+            
+        }
+
+        getSLOutputBoundary.present(listOutDTO);
+
+
     }
 
 }
